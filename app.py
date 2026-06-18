@@ -44,6 +44,11 @@ def get_info():
             'quiet': True,
             'no_warnings': True,
             'extract_flat': False,
+            'extractor_args': {
+                'youtube': {
+                    'player_client': ['android']
+                }
+            }
         }
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=False)
@@ -87,6 +92,11 @@ def prepare():
                 'outtmpl': os.path.join(DOWNLOAD_DIR, f'{file_id}.%(ext)s'),
                 'quiet': True,
                 'no_warnings': True,
+                'extractor_args': {
+                    'youtube': {
+                        'player_client': ['android']
+                    }
+                }
             }
         else:
             # Video format: best pre-merged format that has both video and audio in mp4 container
@@ -95,6 +105,11 @@ def prepare():
                 'outtmpl': os.path.join(DOWNLOAD_DIR, f'{file_id}.%(ext)s'),
                 'quiet': True,
                 'no_warnings': True,
+                'extractor_args': {
+                    'youtube': {
+                        'player_client': ['android']
+                    }
+                }
             }
             
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
